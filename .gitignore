@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /node_modules
 /public/hot
 /public/storage
@@ -6,6 +7,7 @@
 .env
 .env.backup
 .phpunit.result.cache
+# Arquivos e pastas comuns a ignorar
 docker-compose.override.yml
 Homestead.json
 Homestead.yaml
@@ -13,3 +15,34 @@ npm-debug.log
 yarn-error.log
 /.idea
 /.vscode
+/.vagrant
+auth.json
+.phpactor.json
+
+# Diretórios do Composer e Node
+/vendor/
+node_modules/
+
+# Laravel 4 específico
+bootstrap/compiled.php
+app/storage/
+
+# Laravel 5 & Lumen específico
+public/storage
+public/hot
+
+# Laravel 5 com caminho público alterado
+public_html/storage
+public_html/hot
+
+# Laravel: outros ficheiros sensíveis e temporários
+storage/*.key
+.env
+.env.backup
+.env.production
+.phpunit.result.cache
+
+# Build e ficheiros temporários
+/public/build
+/storage/pail
+
