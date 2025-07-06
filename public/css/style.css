@@ -1,0 +1,283 @@
+/* ===================== 01. GERAL ===================== */
+
+/* Estilo base do corpo da página: fundo claro, fonte moderna e transições suaves */
+body {
+    background-color: #f8f9fa;
+    font-family: 'Segoe UI', sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    line-height: 1.6;
+}
+
+/* Estilo dos títulos principais de secções */
+.section-title {
+    font-weight: 700;
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+    color: #198754; /* Verde Bootstrap */
+}
+
+/* Links do rodapé com transição suave */
+footer a {
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+/* Efeito ao passar o mouse sobre os links do rodapé */
+footer a:hover {
+    text-decoration: underline;
+    color: #198754;
+    text-shadow: 0 0 6px rgba(25, 135, 84, 0.3);
+}
+
+/* ===================== 02. NAVBAR & LOGIN ===================== */
+
+/* Estilo do botão de login com animação ao passar o mouse */
+.btn-login {
+    position: relative;
+    overflow: hidden;
+    font-weight: 600;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efeito de brilho sobre o botão */
+.btn-login::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    top: 0;
+    left: -100%;
+    transform: skewX(-20deg);
+    transition: left 0.5s ease;
+}
+
+/* Efeito de zoom e sombra ao passar o mouse */
+.btn-login:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 16px rgba(25, 135, 84, 0.4);
+}
+
+/* Movimento do brilho de esquerda para a direita */
+.btn-login:hover::after {
+    left: 100%;
+}
+
+/* Destaque ao clicar ou focar no botão */
+.btn-login:focus,
+.btn-login:active {
+    outline: none;
+    box-shadow: 0 0 10px rgba(25, 135, 84, 0.4);
+}
+
+/* ===================== 03. CARDS GERAIS ===================== */
+
+/* Cartões com efeito de levantar e sombra */
+.card-hover {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    border-radius: 0.8rem;
+}
+
+.card-hover:hover {
+    transform: translateY(-8px) scale(1.04);
+    box-shadow: 0 14px 28px rgba(0, 128, 0, 0.25);
+}
+
+/* ===================== 04. ÍCONES ===================== */
+
+/* Ícones interativos com rotação e aumento ao passar o mouse */
+.icon-hover {
+    transition: transform 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+}
+
+.icon-hover:hover {
+    transform: rotate(8deg) scale(1.25);
+    color: #198754;
+}
+
+/* ===================== 05. MAPA ===================== */
+
+/* Mapa com cantos arredondados e sombra ao passar o mouse */
+.mapa {
+    border-radius: 12px;
+    border: 1px solid #ced4da;
+    transition: box-shadow 0.4s ease, transform 0.3s ease;
+}
+
+.mapa:hover {
+    box-shadow: 0 0 14px rgba(25, 135, 84, 0.4);
+    transform: scale(1.01);
+}
+
+/* ===================== 06. CAROUSEL ===================== */
+
+/* Estilo dos testemunhos no carrossel */
+.carousel-inner blockquote {
+    padding: 1.5rem;
+    transition: transform 0.4s ease;
+    border-left: 4px solid #198754;
+    background-color: #fff;
+    border-radius: 8px;
+}
+
+.carousel-inner blockquote:hover {
+    transform: scale(1.03);
+}
+
+/* ===================== 07. LOGIN ===================== */
+
+/* Espaçamento vertical da área de login */
+.login-wrapper {
+    padding: 40px 0;
+}
+
+/* Cartão de login com animação e sombra */
+.login-card {
+    border-radius: 1rem;
+    padding: 2rem 1.5rem;
+    background-color: #fff;
+    animation: fadeInUp 0.6s ease-in-out both;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+}
+
+/* Campos de formulário com efeito de destaque */
+input.form-control {
+    border-radius: 0.5rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+input.form-control:hover {
+    transform: scale(1.02);
+}
+
+input.form-control:focus {
+    box-shadow: 0 0 6px rgba(25, 135, 84, 0.4);
+    border-color: #198754;
+}
+
+/* ===================== 08. LIST GROUP ===================== */
+
+/* Efeito de clique em itens de lista */
+.list-group-item-action {
+    transition: all 0.3s ease;
+}
+
+.list-group-item-action:hover {
+    background-color: #198754;
+    color: #fff;
+    transform: translateX(5px);
+}
+
+/* ===================== 09. FUNCIONALIDADES ===================== */
+
+/* Cartão de funcionalidades com efeito animado */
+.funcionalidade-card {
+    background-color: #ffffff;
+    border: 1px solid #dee2e6;
+    border-radius: 1rem;
+    padding: 2rem 1.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    transition: all 0.4s ease;
+    height: 100%;
+}
+
+.funcionalidade-card:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 12px 24px rgba(25, 135, 84, 0.2);
+    background: #f1fdf4;
+}
+
+/* Ícone grande e destacado */
+.funcionalidade-icon {
+    font-size: 2.8rem;
+    color: #198754;
+    transition: transform 0.4s ease, color 0.4s ease;
+}
+
+/* Animação do ícone ao passar o mouse */
+.funcionalidade-card:hover .funcionalidade-icon {
+    transform: scale(1.2) rotate(5deg);
+    color: #157347;
+}
+
+/* Título do cartão */
+.funcionalidade-card h5 {
+    font-weight: 700;
+    margin-top: 1rem;
+    color: #198754;
+    transition: color 0.3s ease;
+}
+
+/* Parágrafo do cartão */
+.funcionalidade-card p {
+    color: #6c757d;
+    font-size: 0.95rem;
+    margin-top: 0.5rem;
+}
+
+/* Classes de atraso para animações */
+.delay-0s { animation-delay: 0s; }
+.delay-1s { animation-delay: 0.2s; }
+.delay-2s { animation-delay: 0.4s; }
+.delay-3s { animation-delay: 0.6s; }
+
+/* ===================== 10. ANIMAÇÕES ===================== */
+
+/* Animação genérica de entrada */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Animação de entrada suave para cima */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translate3d(0, 40px, 0); }
+    to { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+
+/* ===================== 11. RESPONSIVO ===================== */
+
+/* Ajustes para ecrãs médios */
+@media (max-width: 768px) {
+    .funcionalidade-card {
+        padding: 1.5rem 1rem;
+    }
+
+    .funcionalidade-icon {
+        font-size: 2.2rem;
+    }
+
+    .funcionalidade-card h5 {
+        font-size: 1.1rem;
+    }
+
+    .funcionalidade-card p {
+        font-size: 0.9rem;
+    }
+}
+
+/* Ajustes para ecrãs pequenos */
+@media (max-width: 576px) {
+    .section-title {
+        font-size: 1.6rem;
+    }
+
+    .card-hover:hover {
+        transform: scale(1.02);
+    }
+
+    .btn-login {
+        font-size: 0.95rem;
+        padding: 0.5rem 1rem;
+    }
+
+    .icon-hover:hover {
+        transform: scale(1.15) rotate(5deg);
+    }
+}
