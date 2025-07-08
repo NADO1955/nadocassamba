@@ -1,4 +1,5 @@
 <?php
+use Illuminate\Support\Facades\Artisan;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -11,6 +12,15 @@ use App\Http\Controllers\UtenteController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ClinicoController;
 use App\Http\Controllers\MarcacaoController;
+
+Route::get('/migrar', function () {
+    try {
+        Artisan::call('migrate', ['--force' => true]);
+        return 'Migrações executadas com sucesso.';
+    } catch (\Exception $e) {
+        return 'Erro ao executar migrações: ' . $e->getMessage();
+    }
+});
 
 // =================== PÁGINA INICIAL COM REDIRECIONAMENTO ===================
 Route::get('/', function () {
