@@ -21,6 +21,9 @@ COPY . /var/www/html
 # Define o diretório de trabalho
 WORKDIR /var/www/html
 
+# ⬇️ ADICIONA ESTA LINHA AQUI
+RUN composer install --no-dev --optimize-autoloader
+
 # Permissões e configurações para Laravel
 RUN chown -R www-data:www-data /var/www/html \
     && chmod -R 755 /var/www/html/storage /var/www/html/bootstrap/cache
@@ -28,10 +31,10 @@ RUN chown -R www-data:www-data /var/www/html \
 # Ativa reescrita do Apache
 RUN a2enmod rewrite
 
-# ✅ Define o diretório correto para servir
+# Define o diretório correto para servir
 ENV APACHE_DOCUMENT_ROOT /var/www/html/public
 
-# ✅ Altera o VirtualHost para usar o novo root e garante uso de index.php
+# Altera o VirtualHost para usar o novo root
 RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/000-default.conf && \
     echo "<Directory /var/www/html/public>\n\
     Options Indexes FollowSymLinks\n\
@@ -45,4 +48,3 @@ EXPOSE 80
 
 # Comando para iniciar o Apache
 CMD ["apache2-foreground"]
-
