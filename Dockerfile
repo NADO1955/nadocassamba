@@ -28,6 +28,13 @@ RUN chown -R www-data:www-data /var/www/html \
 # Ativa reescrita do Apache
 RUN a2enmod rewrite
 
+# ✅ Define o diretório correto para servir
+ENV APACHE_DOCUMENT_ROOT /var/www/html/public
+
+# ✅ Altera o VirtualHost para usar o novo root
+RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/000-default.conf \
+    && echo "DirectoryIndex index.php" >> /etc/apache2/apache2.conf
+
 # Porta exposta pelo Apache
 EXPOSE 80
 
