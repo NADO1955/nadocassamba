@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Rcu extends Model
+class RCU extends Model
 {
     use HasFactory;
 
@@ -20,6 +20,9 @@ class Rcu extends Model
         'medicacoes_atuais',
         'boletim_vacinas',
         'observacoes',
+        'diagnostico',
+        'tratamento',
+        'prescricao',
     ];
 
     public function utente()
