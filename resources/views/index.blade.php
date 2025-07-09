@@ -64,7 +64,7 @@
 <!-- Cabeçalho -->
 <header class="text-center py-5 animate__animated animate__fadeInDown">
     <h2 class="section-title text-success">SISTEMA DE INFORMAÇÃO HOSPITALAR</h2>
-    <p class="text-muted">Gestão moderna e eficaz da saúde.</p>
+    <p class="text-muted">Gestão modernaDO e eficaz da saúde.</p>
 </header>
 
 <main class="container py-5">

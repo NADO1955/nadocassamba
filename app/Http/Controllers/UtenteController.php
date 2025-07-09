@@ -15,7 +15,7 @@ class UtenteController extends Controller
 {
     public function create()
     {
-        return view('UTENTE.registo');
+        return view('utente.registo');
     }
 
     public function store(Request $request)
@@ -66,7 +66,7 @@ class UtenteController extends Controller
     public function dashboard()
     {
         if (Auth::guard('utente')->check()) {
-            return view('UTENTE.dashboard');
+            return view('utente.dashboard');
         }
 
         return redirect()->route('login.utente')->with('error', 'Precisa de iniciar sessão.');
@@ -77,7 +77,7 @@ class UtenteController extends Controller
         $utente = Auth::guard('utente')->user();
         $rcu = $utente->rcu;
 
-        return view('UTENTE.ver_rcu', compact('utente', 'rcu'));
+        return view('utente.ver_rcu', compact('utente', 'rcu'));
     }
 
     public function editarRCU()
@@ -98,7 +98,7 @@ class UtenteController extends Controller
 
         $rcu = $utente->rcu;
 
-        return view('UTENTE.editar_rcu', compact('rcu'));
+        return view('utente.editar_rcu', compact('rcu'));
     }
 
     public function atualizarRCU(Request $request)
@@ -134,7 +134,7 @@ class UtenteController extends Controller
         $especialidades = Especialidade::all();
         $medicos = Medico::all();
 
-        return view('UTENTE.marcacoes', compact('especialidades', 'medicos'));
+        return view('utente.marcacoes', compact('especialidades', 'medicos'));
     }
 
     public function verDisponiveis()
@@ -143,7 +143,7 @@ class UtenteController extends Controller
         $medicos = Medico::with('especialidade')->get();
         $exames = ExameComplementar::all();
 
-        return view('UTENTE.disponiveis', compact('especialidades', 'medicos', 'exames'));
+        return view('utente.disponiveis', compact('especialidades', 'medicos', 'exames'));
     }
 }
 
