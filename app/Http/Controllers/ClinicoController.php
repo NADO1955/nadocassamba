@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Hash;
 use App\Models\Clinico;
 use App\Models\Horario;
 use App\Models\Marcacao;
-use App\Models\RCU;
+use App\Models\RCU; // Certifica-te de que o ficheiro é mesmo RCU.php com letras maiúsculas
 use Carbon\Carbon;
 
 class ClinicoController extends Controller

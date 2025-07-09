@@ -70,6 +70,7 @@ class UtenteSeeder extends Seeder
                 'boletim_vacinas' => 'Vacinas em dia.',
                 'diagnostico' => null,
                 'tratamento' => null,
+                'prescricao' => null, // <- Este campo estava em falta
                 'observacoes' => 'Criado automaticamente pelo seeder.',
             ]);
         }

@@ -9,7 +9,7 @@ use App\Models\Utente;
 use App\Models\Especialidade;
 use App\Models\Medico;
 use App\Models\ExameComplementar;
-use App\Models\RCU;
+use App\Models\RCU; // <-- Certifique-se que o nome do ficheiro é RCU.php
 
 class UtenteController extends Controller
 {
@@ -58,6 +58,9 @@ class UtenteController extends Controller
             'medicacoes_atuais' => '',
             'boletim_vacinas' => '',
             'observacoes' => '',
+            'diagnostico' => '',
+            'tratamento' => '',
+            'prescricao' => '',
         ]);
 
         return redirect()->route('utente.registo')->with('success', 'Utente registado com sucesso!');
@@ -93,6 +96,9 @@ class UtenteController extends Controller
                 'medicacoes_atuais' => '',
                 'boletim_vacinas' => '',
                 'observacoes' => '',
+                'diagnostico' => '',
+                'tratamento' => '',
+                'prescricao' => '',
             ]);
         }
 
@@ -111,6 +117,9 @@ class UtenteController extends Controller
             'medicacoes_atuais' => 'nullable|string|max:1000',
             'boletim_vacinas' => 'nullable|string|max:1000',
             'observacoes' => 'nullable|string|max:1000',
+            'diagnostico' => 'nullable|string|max:1000',
+            'tratamento' => 'nullable|string|max:1000',
+            'prescricao' => 'nullable|string|max:1000',
         ]);
 
         $utente = Auth::guard('utente')->user();
@@ -124,6 +133,9 @@ class UtenteController extends Controller
             'medicacoes_atuais' => $request->medicacoes_atuais,
             'boletim_vacinas' => $request->boletim_vacinas,
             'observacoes' => $request->observacoes,
+            'diagnostico' => $request->diagnostico,
+            'tratamento' => $request->tratamento,
+            'prescricao' => $request->prescricao,
         ]);
 
         return redirect()->route('utente.rcu')->with('success', 'Registo clínico atualizado com sucesso.');
@@ -146,4 +158,3 @@ class UtenteController extends Controller
         return view('utente.disponiveis', compact('especialidades', 'medicos', 'exames'));
     }
 }
-
