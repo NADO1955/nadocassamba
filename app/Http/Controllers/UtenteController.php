@@ -9,7 +9,7 @@ use App\Models\Utente;
 use App\Models\Especialidade;
 use App\Models\Medico;
 use App\Models\ExameComplementar;
-use App\Models\RCU; // <-- Certifique-se que o nome do ficheiro é RCU.php
+use App\Models\RCU as rcu; // <- Usando alias lowercase
 
 class UtenteController extends Controller
 {
@@ -48,8 +48,8 @@ class UtenteController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        // Cria o RCU com todos os campos vazios
-        RCU::create([
+        // Cria o registo clínico com campos vazios
+        rcu::create([
             'utente_id' => $utente->id,
             'grupo_sanguineo' => '',
             'historico_medico' => '',
