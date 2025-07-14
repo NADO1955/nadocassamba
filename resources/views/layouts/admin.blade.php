@@ -13,10 +13,10 @@
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item"><a class="nav-link" href="{{ route('admin.dashboard') }}">Dashboard</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ route('admin.clinicos') }}">Clínicos</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ route('admin.especialidades') }}">Especialidades</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ route('admin.horarios') }}">Horários</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ route('admin.marcacoes') }}">Marcações</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('admin.clinicos.index') }}">Clínicos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('admin.especialidades.index') }}">Especialidades</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('admin.horarios.index') }}">Horários</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('admin.marcacoes.index') }}">Marcações</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ route('admin.utentes.index') }}">Utentes</a></li>
                 </ul>
                 <form method="POST" action="{{ route('logout.admin') }}">

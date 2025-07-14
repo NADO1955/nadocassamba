@@ -15,6 +15,11 @@ use Carbon\Carbon;
 
 class AdminController extends Controller
 {
+    public function index()
+    {
+        return redirect()->route('admin.dashboard');
+    }
+
     public function dashboard()
     {
         return view('admin.dashboard');
@@ -247,11 +252,11 @@ class AdminController extends Controller
     {
         $clinico = Clinico::findOrFail($id);
 
-        if (!empty($clinico->data_inicio) && !($clinico->data_inicio instanceof \Carbon\Carbon)) {
+        if (!empty($clinico->data_inicio) && !($clinico->data_inicio instanceof Carbon)) {
             $clinico->data_inicio = Carbon::parse($clinico->data_inicio)->format('Y-m-d');
         }
 
-        if (!empty($clinico->hora_inicio) && !($clinico->hora_inicio instanceof \Carbon\Carbon)) {
+        if (!empty($clinico->hora_inicio) && !($clinico->hora_inicio instanceof Carbon)) {
             $clinico->hora_inicio = Carbon::parse($clinico->hora_inicio)->format('H:i');
         }
 
@@ -288,7 +293,7 @@ class AdminController extends Controller
                 'hora_inicio' => $request->hora_inicio,
             ]);
 
-            return redirect()->route('admin.clinicos.editar_horarios', $id)->with('success', 'Horário atualizado com sucesso!');
+            return redirect()->route('admin.clinicos.horarios', $id)->with('success', 'Horário atualizado com sucesso!');
         } catch (Exception $e) {
             return back()->withInput()->with('error', 'Erro ao atualizar horário: ' . $e->getMessage());
         }

@@ -9,7 +9,7 @@ use App\Models\Utente;
 use App\Models\Especialidade;
 use App\Models\Medico;
 use App\Models\ExameComplementar;
-use App\Models\RCU as rcu; // <- Usando alias lowercase
+use App\Models\rcu; // Modelo em minúsculo, certifique-se que o ficheiro está como rcu.php
 
 class UtenteController extends Controller
 {
@@ -60,7 +60,7 @@ class UtenteController extends Controller
             'observacoes' => '',
             'diagnostico' => '',
             'tratamento' => '',
-            'prescricao' => '',
+           
         ]);
 
         return redirect()->route('utente.registo')->with('success', 'Utente registado com sucesso!');

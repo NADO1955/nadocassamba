@@ -21,7 +21,6 @@
                     <th>Utente</th>
                     <th>Diagnóstico</th>
                     <th>Tratamento</th>
-                    <th>Prescrições</th>
                     <th>Última Actualização</th>
                     <th>Ações</th>
                 </tr>
@@ -32,11 +31,8 @@
                         <td>{{ $rcu->utente->nome }}</td>
                         <td>{{ \Illuminate\Support\Str::limit($rcu->diagnostico, 30) }}</td>
                         <td>{{ \Illuminate\Support\Str::limit($rcu->tratamento, 30) }}</td>
-                        <td>{{ \Illuminate\Support\Str::limit($rcu->prescricao, 30) }}</td>
                         <td>{{ $rcu->updated_at ? $rcu->updated_at->format('d/m/Y H:i') : 'N/D' }}</td>
                         <td>
-                            {{-- Ajuste a rota conforme a que existe no teu web.php --}}
-                            {{-- Se quiseres criar a rota ver, faz isso no controller e web.php --}}
                             <a href="{{ route('clinico.rcu.editar', $rcu->utente_id) }}" class="btn btn-sm btn-warning">Editar</a>
                         </td>
                     </tr>

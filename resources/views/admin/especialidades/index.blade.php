@@ -6,7 +6,7 @@
 <div class="container mt-4">
     <div class="d-flex justify-content-between align-items-center mb-3">
         <h2 class="mb-0">Lista de Especialidades</h2>
-        <a href="{{ route('admin.especialidades.criar') }}" class="btn btn-primary">+ Nova Especialidade</a>
+        <a href="{{ route('admin.especialidades.create') }}" class="btn btn-primary">+ Nova Especialidade</a>
     </div>
 
     @if(session('success'))

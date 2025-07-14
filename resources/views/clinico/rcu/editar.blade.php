@@ -39,10 +39,7 @@
             <textarea name="tratamento" id="tratamento" class="form-control" rows="3" required>{{ old('tratamento', $rcu->tratamento) }}</textarea>
         </div>
 
-        <div class="mb-3">
-            <label for="prescricao" class="form-label">Prescrição</label>
-            <textarea name="prescricao" id="prescricao" class="form-control" rows="3" required>{{ old('prescricao', $rcu->prescricao) }}</textarea>
-        </div>
+        
 
         <button type="submit" class="btn btn-success">Guardar Alterações</button>
         <a href="{{ route('clinico.rcu.index') }}" class="btn btn-secondary">Cancelar</a>

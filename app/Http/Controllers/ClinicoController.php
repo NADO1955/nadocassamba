@@ -4,12 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Clinico;
 use App\Models\Horario;
 use App\Models\Marcacao;
-use App\Models\RCU; // Certifica-te de que o ficheiro é mesmo RCU.php com letras maiúsculas
+use App\Models\RCU;
 use Carbon\Carbon;
 
 class ClinicoController extends Controller
@@ -51,7 +50,9 @@ class ClinicoController extends Controller
     public function editarHorario()
     {
         $clinico = Auth::guard('clinico')->user();
-        $horarios = DB::table('horarios')->where('clinico_id', $clinico->id)->first();
+
+        // CORRIGIDO: Usar Eloquent e retornar uma Collection
+        $horarios = Horario::where('clinico_id', $clinico->id)->get();
 
         return view('clinico.horarios', compact('clinico', 'horarios'));
     }
@@ -87,16 +88,14 @@ class ClinicoController extends Controller
             ]);
         }
 
-        DB::table('horarios')->updateOrInsert(
+        Horario::updateOrCreate(
             ['clinico_id' => $clinico->id],
             [
                 'data_inicio'     => $request->input('data_inicio'),
                 'data_fim'        => $request->input('data_fim'),
                 'dias_semana'     => json_encode($request->input('dias_semana')),
-                'horario_inicio'  => $request->input('horario_inicio'),
-                'horario_fim'     => $request->input('horario_fim'),
-                'updated_at'      => now(),
-                'created_at'      => now(),
+                'hora_inicio'     => $request->input('horario_inicio'),
+                'hora_fim'        => $request->input('horario_fim'),
             ]
         );
 

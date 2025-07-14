@@ -22,7 +22,7 @@ class rcu extends Model
         'observacoes',
         'diagnostico',
         'tratamento',
-        'prescricao',
+       
     ];
 
     public function utente()
